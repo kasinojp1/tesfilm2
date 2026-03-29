@@ -187,7 +187,7 @@ body {
 <div class="slider">
 
   <div class="movie-card" data-title="One Piece" data-category="petualangan"
-       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/view?usp=preview')">
+       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
     <img src="images/film1.jpg">
     <div class="movie-title">ONE PIECE</div>
   </div>
@@ -216,7 +216,7 @@ body {
 <div class="section-title">Film Terbaik</div>
 <div class="slider">
 
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/FILE_ID1/preview')">
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
     <img src="images/film1.jpg">
     <div class="movie-title">ONE PIECE</div>
   </div>
@@ -247,7 +247,7 @@ body {
 </div>
 
 <script>
-// Play video dari link Drive
+// Play video dari link Google Drive (harus /preview)
 function playVideo(driveLink) {
   document.getElementById("mainVideo").src = driveLink;
   window.scrollTo({ top: 0, behavior: "smooth" });
