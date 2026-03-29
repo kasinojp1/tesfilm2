@@ -34,6 +34,58 @@ body {
     text-align: center;
     font-size: 26px;
     font-weight: bold;
+    position: relative;
+}
+
+/* HAMBURGER & SOCIAL MENU */
+.menu-container {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 10000;
+}
+
+.hamburger {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.hamburger div {
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.social-menu {
+    display: none;
+    flex-direction: column;
+    margin-top: 10px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+    padding: 10px;
+    align-items: center;
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    z-index: 10001;
+}
+
+.social-menu a {
+    color: white;
+    font-size: 20px;
+    margin: 5px 0;
+    text-decoration: none;
+    transition: transform 0.2s;
+}
+
+.social-menu a:hover {
+    transform: scale(1.2);
+    color: #ff4b2b;
 }
 
 /* MARQUEE */
@@ -56,12 +108,8 @@ body {
 }
 
 @keyframes marquee-left {
-    0% {
-        transform: translateX(0%);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-100%); }
 }
 
 /* PLAYER */
@@ -215,6 +263,20 @@ body {
 </head>
 
 <body>
+
+<!-- HAMBURGER MENU -->
+<div class="menu-container">
+  <div class="hamburger" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <div class="social-menu" id="socialMenu">
+    <a href="https://instagram.com/username" target="_blank">📸</a>
+    <a href="https://t.me/username" target="_blank">✈️</a>
+    <a href="https://facebook.com/username" target="_blank">📘</a>
+  </div>
+</div>
 
 <!-- === POPUP === -->
 <div class="popup" id="popup" onclick="closePopup()">
@@ -370,6 +432,18 @@ function shareApp() {
   } else {
     alert("Copy link: " + window.location.href);
   }
+}
+
+// HAMBURGER MENU TOGGLE
+let menuOpen = false;
+function toggleMenu() {
+    const menu = document.getElementById('socialMenu');
+    menuOpen = !menuOpen;
+    if(menuOpen) {
+        menu.style.display = 'flex';
+    } else {
+        menu.style.display = 'none';
+    }
 }
 </script>
 
