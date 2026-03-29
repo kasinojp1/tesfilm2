@@ -158,36 +158,9 @@ body {
     background: #333;
     color: white;
     cursor: pointer;
-    transition: box-shadow 0.5s ease, color 0.5s ease;
 }
 .category button:hover {
     background: #ff4b2b;
-}
-
-/* TAMBAHAN EFEK LIST MENYALA HANYA UNTUK DRAMA, CINTA, PETUALANGAN */
-.category button:nth-child(2),
-.category button:nth-child(3),
-.category button:nth-child(4) {
-    border: 2px solid #ff4b2b;
-    box-shadow: 0 0 8px #ff4b2b, 0 0 20px #ff416c;
-    color: #ff4b2b;
-    font-weight: 600;
-    animation: glowingBorder 2.5s ease-in-out infinite alternate;
-}
-
-@keyframes glowingBorder {
-    0% {
-        box-shadow: 0 0 8px #ff4b2b, 0 0 20px #ff416c;
-        color: #ff4b2b;
-    }
-    50% {
-        box-shadow: 0 0 15px #ff4b2b, 0 0 30px #ff416c;
-        color: #ffa07a;
-    }
-    100% {
-        box-shadow: 0 0 8px #ff4b2b, 0 0 20px #ff416c;
-        color: #ff4b2b;
-    }
 }
 
 /* TITLE */
@@ -441,72 +414,127 @@ body {
     <img src="images/film4.jpg">
     <div class="movie-title">CARS 3</div>
   </div>
-  
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
+    <img src="images/film1.jpg">
+    <div class="movie-title">ONE PIECE</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
+    <img src="images/film2.jpg">
+    <div class="movie-title">UPIN IPIN</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
+    <img src="images/film3.jpg">
+    <div class="movie-title">SPONGEBOB</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
+    <img src="images/film4.jpg">
+    <div class="movie-title">CARS 3</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
+    <img src="images/film1.jpg">
+    <div class="movie-title">ONE PIECE</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
+    <img src="images/film2.jpg">
+    <div class="movie-title">UPIN IPIN</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
+    <img src="images/film3.jpg">
+    <div class="movie-title">SPONGEBOB</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
+    <img src="images/film4.jpg">
+    <div class="movie-title">CARS 3</div>
+  </div>
+
 </div>
 
 <!-- BOTTOM NAV -->
 <div class="bottom-nav">
-  <div class="nav-item">
-    <span>🏠</span><span>Home</span>
-  </div>
-  <div class="nav-item">
-    <span>🎬</span><span>Movies</span>
-  </div>
-  <div class="nav-item">
-    <span>⭐</span><span>Favorites</span>
-  </div>
-  <div class="nav-item">
-    <span>⚙️</span><span>Settings</span>
-  </div>
+  <div class="nav-item" onclick="goHome()">🏠<span>Home</span></div>
+  <div class="nav-item" onclick="goSeries()">📺<span>Series</span></div>
+  <div class="nav-item" onclick="goMovies()">🎬<span>Movies</span></div>
+  <div class="nav-item" onclick="shareApp()">🔗<span>Share</span></div>
 </div>
 
 <script>
-function toggleMenu() {
-  const menu = document.getElementById('socialMenu');
-  if (menu.style.display === 'flex') {
-    menu.style.display = 'none';
-  } else {
-    menu.style.display = 'flex';
-  }
+// AUTO MUNCUL POPUP
+window.onload = function() {
+  document.getElementById("popup").style.display = "flex";
+};
+
+// Play video dari Google Drive + kirim event ke GA4
+function playVideo(driveLink, title) {
+  document.getElementById("mainVideo").src = driveLink;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+
+  gtag('event', 'play_video', {
+    'video_title': title
+  });
 }
 
+// CLOSE POPUP
 function closePopup() {
-  document.getElementById('popup').style.display = 'none';
+  document.getElementById("popup").style.display = "none";
 }
 
-function playVideo(url, title) {
-  const player = document.getElementById('mainVideo');
-  player.src = url;
-  document.querySelector('.header').textContent = title;
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function filterFilm(category) {
-  const cards = document.querySelectorAll('.movie-card');
-  if(category === 'all') {
-    cards.forEach(card => card.style.display = 'block');
-  } else {
-    cards.forEach(card => {
-      if(card.dataset.category === category) {
-        card.style.display = 'block';
-      } else {
-        card.style.display = 'none';
-      }
-    });
-  }
-}
-
+// Pencarian film
 function searchFilm() {
-  const query = document.getElementById('search').value.toLowerCase();
-  const cards = document.querySelectorAll('.movie-card');
-  cards.forEach(card => {
-    const title = card.dataset.title.toLowerCase();
-    if(title.includes(query)) {
-      card.style.display = 'block';
+  let input = document.getElementById("search").value.toLowerCase();
+  let films = document.querySelectorAll(".movie-card");
+  films.forEach(film => {
+    let title = film.dataset.title.toLowerCase();
+    film.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+
+// Filter kategori
+function filterFilm(category) {
+  let films = document.querySelectorAll(".movie-card");
+  films.forEach(film => {
+    let cat = film.dataset.category;
+    if (!cat || category === "all" || cat === category) {
+      film.style.display = "block";
     } else {
-      card.style.display = 'none';
+      film.style.display = "none";
     }
   });
+}
+
+// Bottom nav
+function goHome() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+function goSeries() { window.location.href = "https://example.com/series"; }
+function goMovies() { window.location.href = "https://example.com/movies"; }
+function shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Web Film Saya',
+      text: 'Nonton film di sini!',
+      url: window.location.href
+    });
+  } else {
+    alert("Copy link: " + window.location.href);
+  }
+}
+
+// HAMBURGER MENU TOGGLE
+let menuOpen = false;
+function toggleMenu() {
+    const menu = document.getElementById('socialMenu');
+    menuOpen = !menuOpen;
+    if(menuOpen) {
+        menu.style.display = 'flex';
+    } else {
+        menu.style.display = 'none';
+    }
 }
 </script>
 
