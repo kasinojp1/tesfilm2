@@ -17,9 +17,9 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI';
-    background-color: #121212;
-    color: white;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9f9f9; /* putih lembut */
+    color: #222; /* teks gelap */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,11 +29,13 @@ body {
 /* HEADER */
 .header {
     width: 100%;
-    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    background: linear-gradient(90deg, #4b79a1, #283e51); /* biru ke gelap elegan */
     padding: 18px;
     text-align: center;
     font-size: 26px;
     font-weight: bold;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 /* PLAYER */
@@ -42,7 +44,7 @@ body {
     max-width: 900px;
     height: 350px;
     margin: 20px 0;
-    background: black;
+    background: #000;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -61,7 +63,9 @@ body {
     width: 70%;
     padding: 10px;
     border-radius: 30px;
-    border: none;
+    border: 1px solid #ccc;
+    background: #fff;
+    color: #222;
 }
 
 /* CATEGORY */
@@ -74,12 +78,14 @@ body {
     padding: 8px 15px;
     border: none;
     border-radius: 20px;
-    background: #333;
-    color: white;
+    background: #e0e0e0; /* abu muda */
+    color: #222;
     cursor: pointer;
+    transition: 0.3s;
 }
 .category button:hover {
-    background: #ff4b2b;
+    background: #4b79a1;
+    color: white;
 }
 
 /* TITLE */
@@ -89,7 +95,7 @@ body {
     padding-left: 10px;
     margin-top: 15px;
     font-size: 20px;
-    color: #ff4b2b;
+    color: #4b79a1;
 }
 
 /* SLIDER */
@@ -105,22 +111,24 @@ body {
     height: 6px;
 }
 .slider::-webkit-scrollbar-thumb {
-    background: #ff4b2b;
+    background: #4b79a1;
     border-radius: 10px;
 }
 
 /* CARD */
 .movie-card {
     min-width: 150px;
-    background: #1f1f1f;
+    background: #fff;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: 0.3s;
     flex-shrink: 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 .movie-card:hover {
     transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 .movie-card img {
     width: 100%;
@@ -131,6 +139,8 @@ body {
     padding: 8px;
     text-align: center;
     font-size: 13px;
+    color: #222;
+    font-weight: bold;
 }
 
 /* BOTTOM NAV */
@@ -139,19 +149,20 @@ body {
     bottom: 0;
     width: 100%;
     max-width: 900px;
-    background: #1a1a1a;
+    background: #fff;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
-    border-top: 1px solid #333;
+    border-top: 1px solid #ccc;
     z-index: 999;
+    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
 }
 
 .nav-item {
     text-align: center;
     font-size: 18px;
     cursor: pointer;
-    color: #ccc;
+    color: #4b79a1;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -162,10 +173,10 @@ body {
 }
 
 .nav-item:hover {
-    color: #ff4b2b;
+    color: #283e51;
 }
 
-/* === TAMBAHAN POPUP === */
+/* === POPUP === */
 .popup {
     position: fixed;
     top: 0;
@@ -188,7 +199,7 @@ body {
 
 <body>
 
-<!-- === POPUP === -->
+<!-- POPUP -->
 <div class="popup" id="popup" onclick="closePopup()">
   <img src="images/poipet.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Popup+Image'">
 </div>
