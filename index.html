@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Web Film Stabil</title>
 
+<!-- Google Analytics GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4M2FEWN7PL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-4M2FEWN7PL');
+</script>
+
 <style>
 body {
     margin: 0;
@@ -187,25 +196,25 @@ body {
 <div class="slider">
 
   <div class="movie-card" data-title="One Piece" data-category="petualangan"
-       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','ONE PIECE')">
     <img src="images/film1.jpg">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
   <div class="movie-card" data-title="Upin Ipin" data-category="cinta"
-       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
     <img src="images/film2.jpg">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
   <div class="movie-card" data-title="Spongebob" data-category="drama"
-       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','SPONGEBOB')">
     <img src="images/film3.jpg">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
   <div class="movie-card" data-title="Cars 3" data-category="petualangan"
-       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+       onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','CARS 3')">
     <img src="images/film4.jpg">
     <div class="movie-title">CARS 3</div>
   </div>
@@ -216,22 +225,22 @@ body {
 <div class="section-title">Film Terbaik</div>
 <div class="slider">
 
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','ONE PIECE')">
     <img src="images/film1.jpg">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
     <img src="images/film2.jpg">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','SPONGEBOB')">
     <img src="images/film3.jpg">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview')">
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','CARS 3')">
     <img src="images/film4.jpg">
     <div class="movie-title">CARS 3</div>
   </div>
@@ -247,10 +256,15 @@ body {
 </div>
 
 <script>
-// Play video dari link Google Drive (harus /preview)
-function playVideo(driveLink) {
+// Play video dari Google Drive + kirim event ke GA4
+function playVideo(driveLink, title) {
   document.getElementById("mainVideo").src = driveLink;
   window.scrollTo({ top: 0, behavior: "smooth" });
+
+  // Kirim event ke GA4
+  gtag('event', 'play_video', {
+    'video_title': title
+  });
 }
 
 // Pencarian film
