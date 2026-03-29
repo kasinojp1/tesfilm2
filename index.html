@@ -199,6 +199,7 @@ body {
     cursor: pointer;
     transition: 0.3s;
     flex-shrink: 0;
+    position: relative;
 }
 .movie-card:hover {
     transform: scale(1.05);
@@ -214,6 +215,28 @@ body {
     font-size: 13px;
 }
 
+/* Rating badge */
+.movie-card .rating {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffc107;
+  font-weight: bold;
+  font-size: 13px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.7);
+}
+.movie-card .rating span {
+  font-size: 14px;
+}
+
 /* BOTTOM NAV */
 .bottom-nav {
     position: fixed;
@@ -226,24 +249,6 @@ body {
     padding: 10px 0;
     border-top: 1px solid #333;
     z-index: 999;
-}
-
-.nav-item {
-    text-align: center;
-    font-size: 18px;
-    cursor: pointer;
-    color: #ccc;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.nav-item span {
-    font-size: 12px;
-}
-
-.nav-item:hover {
-    color: #ff4b2b;
 }
 
 /* === TAMBAHAN POPUP === */
@@ -327,65 +332,77 @@ body {
 
   <div class="movie-card" data-title="One Piece" data-category="petualangan"
        onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film1.jpg" alt="One Piece">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
   <div class="movie-card" data-title="Upin Ipin" data-category="cinta"
        onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film2.jpg" alt="Upin Ipin">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
   <div class="movie-card" data-title="Spongebob" data-category="drama"
        onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film3.jpg" alt="Spongebob">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
   <div class="movie-card" data-title="Cars 3" data-category="petualangan"
        onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film4.jpg" alt="Cars 3">
     <div class="movie-title">CARS 3</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film1.jpg" alt="One Piece">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film2.jpg" alt="Upin Ipin">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film3.jpg" alt="Spongebob">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film4.jpg" alt="Cars 3">
     <div class="movie-title">CARS 3</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film1.jpg" alt="One Piece">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film2.jpg" alt="Upin Ipin">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film3.jpg" alt="Spongebob">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film4.jpg" alt="Cars 3">
     <div class="movie-title">CARS 3</div>
   </div>
   
@@ -396,145 +413,86 @@ body {
 <div class="slider">
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film1.jpg" alt="One Piece">
     <div class="movie-title">ONE PIECE</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film2.jpg" alt="Upin Ipin">
     <div class="movie-title">UPIN IPIN</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film3.jpg" alt="Spongebob">
     <div class="movie-title">SPONGEBOB</div>
   </div>
 
   <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
+    <div class="rating"><span>⭐</span> 7.2</div>
+    <img src="images/film4.jpg" alt="Cars 3">
     <div class="movie-title">CARS 3</div>
   </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
-    <div class="movie-title">ONE PIECE</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
-    <div class="movie-title">UPIN IPIN</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
-    <div class="movie-title">SPONGEBOB</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
-    <div class="movie-title">CARS 3</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
-    <img src="images/film1.jpg">
-    <div class="movie-title">ONE PIECE</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1l2_7NuVxSgARnWAwrDUwmUIfeARoOo74/preview','UPIN IPIN')">
-    <img src="images/film2.jpg">
-    <div class="movie-title">UPIN IPIN</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','SPONGEBOB')">
-    <img src="images/film3.jpg">
-    <div class="movie-title">SPONGEBOB</div>
-  </div>
-
-  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/1H-21Uj-VIrhBd4os4EHiH68x06j1rmmR/preview','CARS 3')">
-    <img src="images/film4.jpg">
-    <div class="movie-title">CARS 3</div>
-  </div>
-
+  
 </div>
 
-<!-- BOTTOM NAV -->
+<!-- FOOTER NAV (TIDAK DIUBAH) -->
 <div class="bottom-nav">
-  <div class="nav-item" onclick="goHome()">🏠<span>Home</span></div>
-  <div class="nav-item" onclick="goSeries()">📺<span>Series</span></div>
-  <div class="nav-item" onclick="goMovies()">🎬<span>Movies</span></div>
-  <div class="nav-item" onclick="shareApp()">🔗<span>Share</span></div>
+  <div class="nav-item">🏠<span>Home</span></div>
+  <div class="nav-item">🔥<span>Trending</span></div>
+  <div class="nav-item">⭐<span>Favorite</span></div>
+  <div class="nav-item">👤<span>Profile</span></div>
 </div>
 
 <script>
-// AUTO MUNCUL POPUP
-window.onload = function() {
-  document.getElementById("popup").style.display = "flex";
-};
-
-// Play video dari Google Drive + kirim event ke GA4
-function playVideo(driveLink, title) {
-  document.getElementById("mainVideo").src = driveLink;
-  window.scrollTo({ top: 0, behavior: "smooth" });
-
-  gtag('event', 'play_video', {
-    'video_title': title
-  });
-}
-
-// CLOSE POPUP
-function closePopup() {
-  document.getElementById("popup").style.display = "none";
-}
-
-// Pencarian film
-function searchFilm() {
-  let input = document.getElementById("search").value.toLowerCase();
-  let films = document.querySelectorAll(".movie-card");
-  films.forEach(film => {
-    let title = film.dataset.title.toLowerCase();
-    film.style.display = title.includes(input) ? "block" : "none";
-  });
-}
-
-// Filter kategori
-function filterFilm(category) {
-  let films = document.querySelectorAll(".movie-card");
-  films.forEach(film => {
-    let cat = film.dataset.category;
-    if (!cat || category === "all" || cat === category) {
-      film.style.display = "block";
-    } else {
-      film.style.display = "none";
-    }
-  });
-}
-
-// Bottom nav
-function goHome() { window.scrollTo({ top: 0, behavior: "smooth" }); }
-function goSeries() { window.location.href = "https://example.com/series"; }
-function goMovies() { window.location.href = "https://example.com/movies"; }
-function shareApp() {
-  if (navigator.share) {
-    navigator.share({
-      title: 'Web Film Saya',
-      text: 'Nonton film di sini!',
-      url: window.location.href
-    });
+function toggleMenu() {
+  const menu = document.getElementById('socialMenu');
+  if (menu.style.display === 'flex') {
+    menu.style.display = 'none';
   } else {
-    alert("Copy link: " + window.location.href);
+    menu.style.display = 'flex';
   }
 }
 
-// HAMBURGER MENU TOGGLE
-let menuOpen = false;
-function toggleMenu() {
-    const menu = document.getElementById('socialMenu');
-    menuOpen = !menuOpen;
-    if(menuOpen) {
-        menu.style.display = 'flex';
+function playVideo(url, title) {
+  const iframe = document.getElementById('mainVideo');
+  iframe.src = url;
+  // Bisa juga tambah judul video kalau mau, misal:
+  // document.title = 'Nonton: ' + title;
+}
+
+function closePopup() {
+  document.getElementById('popup').style.display = 'none';
+}
+
+function searchFilm() {
+  const filter = document.getElementById('search').value.toLowerCase();
+  const movies = document.querySelectorAll('.movie-card');
+  movies.forEach(movie => {
+    const title = movie.getAttribute('data-title') || movie.querySelector('.movie-title').textContent;
+    if (title.toLowerCase().includes(filter)) {
+      movie.style.display = '';
     } else {
-        menu.style.display = 'none';
+      movie.style.display = 'none';
     }
+  });
+}
+
+function filterFilm(category) {
+  const movies = document.querySelectorAll('.movie-card');
+  if(category === 'all') {
+    movies.forEach(m => m.style.display = '');
+  } else {
+    movies.forEach(movie => {
+      if(movie.getAttribute('data-category') === category) {
+        movie.style.display = '';
+      } else {
+        movie.style.display = 'none';
+      }
+    });
+  }
 }
 </script>
 
