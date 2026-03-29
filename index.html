@@ -165,7 +165,7 @@ body {
     color: #ff4b2b;
 }
 
-/* === TAMBAHAN POPUP (tidak merubah yang lain) === */
+/* === TAMBAHAN POPUP === */
 .popup {
     position: fixed;
     top: 0;
@@ -173,7 +173,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.8);
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
     z-index: 9999;
@@ -188,9 +188,9 @@ body {
 
 <body>
 
-<!-- === POPUP (tambahan saja) === -->
+<!-- === POPUP === -->
 <div class="popup" id="popup" onclick="closePopup()">
-  <img src="images/popup.jpg1">
+  <img src="images/popup.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Popup+Image'">
 </div>
 
 <div class="header">NONTONYUK</div>
@@ -280,6 +280,11 @@ body {
 </div>
 
 <script>
+// AUTO MUNCUL POPUP
+window.onload = function() {
+  document.getElementById("popup").style.display = "flex";
+};
+
 // Play video dari Google Drive + kirim event ke GA4
 function playVideo(driveLink, title) {
   document.getElementById("mainVideo").src = driveLink;
@@ -290,7 +295,7 @@ function playVideo(driveLink, title) {
   });
 }
 
-// === TAMBAHAN POPUP ===
+// CLOSE POPUP
 function closePopup() {
   document.getElementById("popup").style.display = "none";
 }
