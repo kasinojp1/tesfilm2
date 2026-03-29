@@ -17,9 +17,9 @@
 <style>
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    background-color: #f9f9f9; /* putih lembut */
-    color: #222; /* teks gelap */
+    font-family: 'Segoe UI';
+    background-color: #121212;
+    color: white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -29,13 +29,11 @@ body {
 /* HEADER */
 .header {
     width: 100%;
-    background: linear-gradient(90deg, #4b79a1, #283e51); /* biru ke gelap elegan */
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
     padding: 18px;
     text-align: center;
     font-size: 26px;
     font-weight: bold;
-    color: white;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
 }
 
 /* PLAYER */
@@ -44,7 +42,7 @@ body {
     max-width: 900px;
     height: 350px;
     margin: 20px 0;
-    background: #000;
+    background: black;
     border-radius: 12px;
     overflow: hidden;
 }
@@ -63,9 +61,7 @@ body {
     width: 70%;
     padding: 10px;
     border-radius: 30px;
-    border: 1px solid #ccc;
-    background: #fff;
-    color: #222;
+    border: none;
 }
 
 /* CATEGORY */
@@ -78,14 +74,12 @@ body {
     padding: 8px 15px;
     border: none;
     border-radius: 20px;
-    background: #e0e0e0; /* abu muda */
-    color: #222;
+    background: #333;
+    color: white;
     cursor: pointer;
-    transition: 0.3s;
 }
 .category button:hover {
-    background: #4b79a1;
-    color: white;
+    background: #ff4b2b;
 }
 
 /* TITLE */
@@ -95,7 +89,7 @@ body {
     padding-left: 10px;
     margin-top: 15px;
     font-size: 20px;
-    color: #4b79a1;
+    color: #ff4b2b;
 }
 
 /* SLIDER */
@@ -111,24 +105,22 @@ body {
     height: 6px;
 }
 .slider::-webkit-scrollbar-thumb {
-    background: #4b79a1;
+    background: #ff4b2b;
     border-radius: 10px;
 }
 
 /* CARD */
 .movie-card {
     min-width: 150px;
-    background: #fff;
+    background: #1f1f1f;
     border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     transition: 0.3s;
     flex-shrink: 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 .movie-card:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
 }
 .movie-card img {
     width: 100%;
@@ -139,8 +131,6 @@ body {
     padding: 8px;
     text-align: center;
     font-size: 13px;
-    color: #222;
-    font-weight: bold;
 }
 
 /* BOTTOM NAV */
@@ -149,20 +139,19 @@ body {
     bottom: 0;
     width: 100%;
     max-width: 900px;
-    background: #fff;
+    background: #1a1a1a;
     display: flex;
     justify-content: space-around;
     padding: 10px 0;
-    border-top: 1px solid #ccc;
+    border-top: 1px solid #333;
     z-index: 999;
-    box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
 }
 
 .nav-item {
     text-align: center;
     font-size: 18px;
     cursor: pointer;
-    color: #4b79a1;
+    color: #ccc;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -173,10 +162,10 @@ body {
 }
 
 .nav-item:hover {
-    color: #283e51;
+    color: #ff4b2b;
 }
 
-/* === POPUP === */
+/* === TAMBAHAN POPUP === */
 .popup {
     position: fixed;
     top: 0;
@@ -199,7 +188,7 @@ body {
 
 <body>
 
-<!-- POPUP -->
+<!-- === POPUP === -->
 <div class="popup" id="popup" onclick="closePopup()">
   <img src="images/poipet.jpg" onerror="this.src='https://via.placeholder.com/400x300?text=Popup+Image'">
 </div>
@@ -231,7 +220,7 @@ body {
 <div class="slider">
 
   <div class="movie-card" data-title="One Piece" data-category="petualangan"
-       onclick="playVideo('https://drive.google.com/file/d/1fmIMP9dWDu5DVvpllNiezQQfpZzqGOEI/preview','ONE PIECE')">
+       onclick="playVideo('https://drive.google.com/file/d/1JSQZXnbVN9VCd-dPltwVCP9ZdH9VnyNP/preview','ONE PIECE')">
     <img src="images/film1.jpg">
     <div class="movie-title">ONE PIECE</div>
   </div>
