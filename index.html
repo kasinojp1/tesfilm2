@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Web Film Stabil</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI';
+    background-color: #121212;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 70px;
+}
+
+/* HEADER */
+.header {
+    width: 100%;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    padding: 18px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+/* PLAYER */
+.player {
+    width: 100%;
+    max-width: 900px;
+    height: 350px;
+    margin: 20px 0;
+    background: black;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.player iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* SEARCH */
+.search-box {
+    text-align: center;
+    margin-bottom: 15px;
+}
+.search-box input {
+    width: 70%;
+    padding: 10px;
+    border-radius: 30px;
+    border: none;
+}
+
+/* CATEGORY */
+.category {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.category button {
+    margin: 5px;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 20px;
+    background: #333;
+    color: white;
+    cursor: pointer;
+}
+.category button:hover {
+    background: #ff4b2b;
+}
+
+/* TITLE */
+.section-title {
+    width: 100%;
+    max-width: 900px;
+    padding-left: 10px;
+    margin-top: 15px;
+    font-size: 20px;
+    color: #ff4b2b;
+}
+
+/* SLIDER */
+.slider {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 10px;
+}
+.slider::-webkit-scrollbar {
+    height: 6px;
+}
+.slider::-webkit-scrollbar-thumb {
+    background: #ff4b2b;
+    border-radius: 10px;
+}
+
+/* CARD */
+.movie-card {
+    min-width: 150px;
+    background: #1f1f1f;
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    flex-shrink: 0;
+}
+.movie-card:hover {
+    transform: scale(1.05);
+}
+.movie-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.movie-title {
+    padding: 8px;
+    text-align: center;
+    font-size: 13px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 900px;
+    background: #1a1a1a;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #333;
+    z-index: 999;
+}
+
+.nav-item {
+    text-align: center;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav-item span {
+    font-size: 12px;
+}
+
+.nav-item:hover {
+    color: #ff4b2b;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">NONTONYUK</div>
+
+<div class="player">
+  <iframe id="mainVideo"
+          src=""
+          frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen>
+  </iframe>
+</div>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Cari film..." onkeyup="searchFilm()">
+</div>
+
+<div class="category">
+  <button onclick="filterFilm('all')">Semua</button>
+  <button onclick="filterFilm('drama')">Drama</button>
+  <button onclick="filterFilm('cinta')">Cinta</button>
+  <button onclick="filterFilm('petualangan')">Petualangan</button>
+</div>
+
+<!-- FILM TERBARU -->
+<div class="section-title">Film Terbaru</div>
+<div class="slider">
+
+  <div class="movie-card" data-title="One Piece" data-category="petualangan"
+       onclick="playVideo('https://drive.google.com/file/d/FILE_ID1/preview')">
+    <img src="images/film1.jpg">
+    <div class="movie-title">ONE PIECE</div>
+  </div>
+
+  <div class="movie-card" data-title="Upin Ipin" data-category="cinta"
+       onclick="playVideo('https://drive.google.com/file/d/FILE_ID2/preview')">
+    <img src="images/film2.jpg">
+    <div class="movie-title">UPIN IPIN</div>
+  </div>
+
+  <div class="movie-card" data-title="Spongebob" data-category="drama"
+       onclick="playVideo('https://drive.google.com/file/d/FILE_ID3/preview')">
+    <img src="images/film3.jpg">
+    <div class="movie-title">SPONGEBOB</div>
+  </div>
+
+  <div class="movie-card" data-title="Cars 3" data-category="petualangan"
+       onclick="playVideo('https://drive.google.com/file/d/FILE_ID4/preview')">
+    <img src="images/film4.jpg">
+    <div class="movie-title">CARS 3</div>
+  </div>
+
+</div>
+
+<!-- FILM TERBAIK -->
+<div class="section-title">Film Terbaik</div>
+<div class="slider">
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/FILE_ID1/preview')">
+    <img src="images/film1.jpg">
+    <div class="movie-title">ONE PIECE</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/FILE_ID2/preview')">
+    <img src="images/film2.jpg">
+    <div class="movie-title">UPIN IPIN</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/FILE_ID3/preview')">
+    <img src="images/film3.jpg">
+    <div class="movie-title">SPONGEBOB</div>
+  </div>
+
+  <div class="movie-card" onclick="playVideo('https://drive.google.com/file/d/FILE_ID4/preview')">
+    <img src="images/film4.jpg">
+    <div class="movie-title">CARS 3</div>
+  </div>
+
+</div>
+
+<!-- BOTTOM NAV -->
+<div class="bottom-nav">
+  <div class="nav-item" onclick="goHome()">🏠<span>Home</span></div>
+  <div class="nav-item" onclick="goSeries()">📺<span>Series</span></div>
+  <div class="nav-item" onclick="goMovies()">🎬<span>Movies</span></div>
+  <div class="nav-item" onclick="shareApp()">🔗<span>Share</span></div>
+</div>
+
+<script>
+// Play video dari link Drive
+function playVideo(driveLink) {
+  document.getElementById("mainVideo").src = driveLink;
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+// Pencarian film
+function searchFilm() {
+  let input = document.getElementById("search").value.toLowerCase();
+  let films = document.querySelectorAll(".movie-card");
+  films.forEach(film => {
+    let title = film.dataset.title.toLowerCase();
+    film.style.display = title.includes(input) ? "block" : "none";
+  });
+}
+
+// Filter kategori
+function filterFilm(category) {
+  let films = document.querySelectorAll(".movie-card");
+  films.forEach(film => {
+    let cat = film.dataset.category;
+    if (!cat || category === "all" || cat === category) {
+      film.style.display = "block";
+    } else {
+      film.style.display = "none";
+    }
+  });
+}
+
+// Bottom nav
+function goHome() { window.scrollTo({ top: 0, behavior: "smooth" }); }
+function goSeries() { window.location.href = "https://example.com/series"; }
+function goMovies() { window.location.href = "https://example.com/movies"; }
+function shareApp() {
+  if (navigator.share) {
+    navigator.share({
+      title: 'Web Film Saya',
+      text: 'Nonton film di sini!',
+      url: window.location.href
+    });
+  } else {
+    alert("Copy link: " + window.location.href);
+  }
+}
+</script>
+
+</body>
+</html>
