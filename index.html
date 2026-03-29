@@ -36,6 +36,34 @@ body {
     font-weight: bold;
 }
 
+/* MARQUEE */
+.marquee-container {
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    padding-left: 100%;
+    animation: marquee-left 15s linear infinite;
+    font-size: 16px;
+    color: #ff4b2b;
+}
+
+@keyframes marquee-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
 /* PLAYER */
 .player {
     width: 100%;
@@ -194,6 +222,11 @@ body {
 </div>
 
 <div class="header">NONTONYUK</div>
+
+<!-- MARQUEE TEKS BERJALAN -->
+<div class="marquee-container">
+  <div class="marquee">🎬 Nonton Film Terbaru dan Terbaik di Sini! Jangan sampai ketinggalan! 🎬</div>
+</div>
 
 <div class="player">
   <iframe id="mainVideo"
